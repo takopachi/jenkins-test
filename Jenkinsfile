@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'main', credentialsId: 'your-creds-id', url: 'git@github.com:takopachi/jenkins-test.git'
+                git credentialsId: 'Github', url: 'git@github.com:takopachi/jenkins-test.git'
             }
         }
 
