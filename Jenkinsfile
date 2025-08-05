@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run Python Script') {
             steps {
-                bat 'python main.py'
+                bat '"C:\\Users\\Lim Song Lip\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" main.py'
             }
         }
     }
