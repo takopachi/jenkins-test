@@ -20,4 +20,21 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo 'Build was successful! (^_^)'
+            bat 'echo Success! > success.txt'
+        }
+
+        failure {
+            echo 'Build failed. (X_X)'
+            bat 'echo Failed! > failed.txt'
+        }
+
+        always {
+            echo 'This runs regardless of success or failure. (-_-)'
+            bat 'echo %DATE% %TIME% > always.txt'
+        }
+    }
 }
