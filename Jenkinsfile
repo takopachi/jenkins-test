@@ -1,10 +1,18 @@
 pipeline {
     agent any
 
+    parameters {
+        choice(
+            name: 'branch',
+            choices: ['main', 'dev', 'bug_fixes'],
+            description: 'Select the Git branch to build'
+        )
+    }
+
     stages {
         stage('Clone Repo') {
             steps {
-                git credentialsId: 'Github', url: 'git@github.com:takopachi/jenkins-test.git'
+                git branch: "${params.branch}", git credentialsId: 'Github', url: 'git@github.com:takopachi/jenkins-test.git'
             }
         }
 
